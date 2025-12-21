@@ -1,1 +1,1 @@
-# Contact-Form
+This project is a simple contact form built with HTML and JavaScript. It validates user input by checking if the name, email, and message fields are filled out correctly before submission. Error messages are shown when input is missing or too short, and a success message appears when all fields are valid. This project is beginner-friendly and focuses on basic form validation and DOM manipulation.
