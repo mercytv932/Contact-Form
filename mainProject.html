@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Form</title>
+</head>
+<body>
+
+<h1>Contact Us</h1>
+<label for="name">Name:</label>
+<input type="text" id="name">
+<div id="nameError" style="display: none; color: red;"></div>
+
+<br>
+
+<label for="email">Email:</label>
+<input type="text" id="email">
+<div id="emailError" style="display: none; color: red;"></div>
+
+<br>
+
+<label for="message">Message:</label>
+<textarea id="message" rows="4"></textarea>
+<div id="messageError" style="display: none; color: red;"></div>
+<br>
+<button>Submit</button>
+
+<div id="success"></div>
+
+<script>
+const name = document.querySelector("#name");
+const email = document.querySelector("#email");
+const message = document.querySelector("#message")
+
+const nameError = document.querySelector("#nameError");
+const emailError = document.querySelector("#emailError");
+const messageError = document.querySelector("#messageError");
+const success = document.querySelector("#success");
+const button = document.querySelector("button");
+
+
+
+button.addEventListener("click", function(){
+
+const nameValue = name.value;
+const emailValue = email.value;
+const messageValue = message.value;
+const successValue = success;
+
+console.log('Submitted');
+console.log('name:', nameValue);
+console.log('email', emailValue);
+console.log('message', messageValue);
+
+
+ if(nameValue ===""){
+    nameError.textContent = "Name is required!";
+    nameError.style.display = "block";
+    return;
+    }
+
+  if(nameValue.length<2){
+    nameError.textContent = "Name too short";
+    nameError.style.display = "block";
+    return;
+    }
+
+nameError.style.display = "none"; // if everything's valid, hide erros
+
+
+
+  if(emailValue===""){
+  emailError.textContent = "Email is required!";
+  emailError.style.display = "block";
+  return;
+  }
+
+  if(!emailValue.includes("@")){
+  emailError.textContent = "@ is required";
+  emailError.style.display = "block";
+  return;
+
+  }
+
+emailError.style.display = "none";
+
+
+
+  if(messageValue===""){
+   messageError.textContent = "You need to write something!";
+   messageError.style.display = "block";
+   return;
+  }
+
+  if(messageValue.length<10){
+   messageError.textContent = "Message too short!";
+   messageError.style.display = "block";
+   return;
+  }
+messageError.style.display = "none";
+
+
+success.textContent = "Thank you for your messages!";
+success.style.display = "block";
+success.style.color  = "green";
+
+
+//empty inputs for new text
+name.value = "";
+email.value = "";
+message.value = "";
+
+
+
+});
+
+
+</script>
+</body>
+</html>
+
+<!-- alert(`Thanks for message ,${nameValue}!`); -->
+
