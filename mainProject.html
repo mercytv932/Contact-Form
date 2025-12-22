@@ -4,8 +4,68 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Form</title>
+
+
+<style>
+body, html{
+background-color: rgb(244, 244, 244);
+margin: 0;
+height: 100vh;
+}
+
+.form-container{
+  max-width: 700px;
+  margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  justify-content: center; /*centers horizontally*/
+  align-items: center; /*centers*/
+  padding: 12px;
+  place-items: center;
+}
+
+input, textarea{
+  padding: 12px;
+  border-radius:8px;
+  border: 1px solid gray;
+  width: 95%;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.submit-button{
+  background-color: rgb(190, 225, 255);
+cursor: pointer;
+transition: background-color 0.3s ease;
+font-size: 20px;
+}
+
+.submit-button:hover{
+  background-color:#0a7d9b;
+  text-decoration: underline;
+  box-shadow: 0 3px 10px rgba(221, 199, 0, 0.2);
+  border: #1a82b8 1px;
+}
+
+.submit-button:active{
+  background-color: #1a82b8;
+  opacity: 0.7s;
+
+}
+
+#success{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  padding: 5px;
+  transition: ease-out;
+}
+
+</style>
+
 </head>
 <body>
+
+<div class="form-container">
 
 <h1>Contact Us</h1>
 <label for="name">Name:</label>
@@ -24,9 +84,11 @@
 <textarea id="message" rows="4"></textarea>
 <div id="messageError" style="display: none; color: red;"></div>
 <br>
-<button>Submit</button>
+<button class="submit-button">Submit</button>
 
 <div id="success"></div>
+
+</div>
 
 <script>
 const name = document.querySelector("#name");
@@ -46,7 +108,6 @@ button.addEventListener("click", function(){
 const nameValue = name.value;
 const emailValue = email.value;
 const messageValue = message.value;
-const successValue = success;
 
 console.log('Submitted');
 console.log('name:', nameValue);
@@ -104,7 +165,6 @@ messageError.style.display = "none";
 success.textContent = "Thank you for your messages!";
 success.style.display = "block";
 success.style.color  = "green";
-
 
 //empty inputs for new text
 name.value = "";
